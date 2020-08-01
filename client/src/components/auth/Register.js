@@ -5,7 +5,6 @@ import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
-// Register user
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -13,7 +12,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     password: '',
     password2: '',
   });
+
   const { name, email, password, password2 } = formData;
+
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -26,7 +27,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     }
   };
 
-  // Always return to dashboard is auth
   if (isAuthenticated) {
     return <Redirect to='/dashboard' />;
   }
